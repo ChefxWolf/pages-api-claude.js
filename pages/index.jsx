@@ -6,9 +6,9 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const C = {
   bg:       '#07060A',
-  glass:    'rgba(255,255,255,0.04)',
-  glassHi:  'rgba(255,255,255,0.07)',
-  border:   'rgba(255,255,255,0.09)',
+  glass:    'rgba(255,255,255,0.07)',
+  glassHi:  'rgba(255,255,255,0.11)',
+  border:   'rgba(255,255,255,0.12)',
   borderHi: 'rgba(255,90,45,0.45)',
   orange:   '#FF5A2D',
   amber:    '#FF9500',
@@ -38,7 +38,9 @@ const GlobalStyles = () => {
     st.textContent = `
       *{box-sizing:border-box;margin:0;padding:0}
       html{scroll-behavior:smooth}
-      body{background:#07060A;font-family:'Manrope',sans-serif;color:#F5EEE8;overflow-x:hidden}
+      body{background:#120E0B;font-family:'Manrope',sans-serif;color:#F5EEE8;overflow-x:hidden}
+      @media(max-width:640px){.desk-nav{display:none!important}.ham-btn{display:flex!important}}
+      @media(min-width:641px){.ham-btn{display:none!important}.mob-menu{display:none!important}}
       ::-webkit-scrollbar{width:4px}
       ::-webkit-scrollbar-track{background:transparent}
       ::-webkit-scrollbar-thumb{background:rgba(255,90,45,0.35);border-radius:99px}
@@ -112,7 +114,7 @@ JSON dışında hiçbir şey yazma.`;
 
 const TREND_PROMPT = (date, niche) => `ChefXVid trend analiz motoru. Tarih: ${date}. ${niche?`Niş: ${niche}.`:''} Web ara, bu hafta viral olanları bul.
 SADECE JSON (Türkçe):
-{"son_guncelleme":"${new Date().toISOString()}","patlayan_formatlar":[{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":3,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":2,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":2,"nasil_kullanilir":"..."}],"trend_sesler":[{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"yeni"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"zirve"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"dusus"}],"algoritma_haberleri":[{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."},{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."}],"nis_analizi":{"nis":"${niche||'Genel'}","trending_tipler":[{"tip":"...","aciklama":"...","ates_seviyesi":3},{"tip":"...","aciklama":"...","ates_seviyesi":2}],"kacinin_konular":["...","...","..."],"yukselen_konular":[{"konu":"...","neden":"...","rekabet":"dusuk"},{"konu":"...","neden":"...","rekabet":"orta"}],"ipuclari":["...","...","..."]},"viral_anatomi":{"ortalama_sure_saniye":28,"en_yaygin_kanca_tipleri":["...","...","..."],"dominant_duygular":["...","...","..."],"en_iyi_paylasim_saatleri":["19:00-21:00","12:00-13:00"],"hashtag_stratejisi":"..."},"emergent_skor":{"algoritma_agresivligi":7,"bu_hafta_viral_mi":true,"aciklama":"...","dominant_duygu":"..."}}
+{"son_guncelleme":"${new Date().toISOString()}","patlayan_formatlar":[{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":3,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":3,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":2,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":2,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":2,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":1,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":1,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":1,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":1,"nasil_kullanilir":"..."},{"format_adi":"...","aciklama":"...","neden_calisuyor":"...","ates_seviyesi":1,"nasil_kullanilir":"..."}],"trend_sesler":[{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"yeni"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"yeni"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"yeni"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"zirve"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"zirve"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"zirve"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"dusus"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"dusus"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"dusus"},{"ses_adi":"...","neden_trend":"...","en_iyi_icin":"...","yasam_suresi":"dusus"}],"algoritma_haberleri":[{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."},{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."},{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."},{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."},{"baslik":"...","ozet":"...","icerik_uretici_etkisi":"...","tarih":"..."}],"nis_analizi":{"nis":"${niche||'Genel'}","trending_tipler":[{"tip":"...","aciklama":"...","ates_seviyesi":3},{"tip":"...","aciklama":"...","ates_seviyesi":2}],"kacinin_konular":["...","...","..."],"yukselen_konular":[{"konu":"...","neden":"...","rekabet":"dusuk"},{"konu":"...","neden":"...","rekabet":"orta"}],"ipuclari":["...","...","..."]},"viral_anatomi":{"ortalama_sure_saniye":28,"en_yaygin_kanca_tipleri":["...","...","..."],"dominant_duygular":["...","...","..."],"en_iyi_paylasim_saatleri":["19:00-21:00","12:00-13:00"],"hashtag_stratejisi":"..."},"emergent_skor":{"algoritma_agresivligi":7,"bu_hafta_viral_mi":true,"aciklama":"...","dominant_duygu":"..."}}
 JSON dışında hiçbir şey yazma.`;
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -401,34 +403,54 @@ const UploadZone = ({ label, file, thumb, onFile, onError, compact=false }) => {
 //  NAVBAR
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const Navbar = ({ page, setPage }) => {
+  const [mob,setMob]=useState(false);
   const nav=[{k:'landing',l:'Ana Sayfa'},{k:'analiz',l:'Analiz'},{k:'ab',l:'A/B'},{k:'trendler',l:'Trendler'},{k:'gecmis',l:'Geçmiş'}];
   return (
     <nav style={{position:'sticky',top:0,zIndex:100,
-      background:'rgba(7,6,10,0.8)',backdropFilter:'blur(24px)',
+      background:'rgba(18,14,11,0.94)',backdropFilter:'blur(24px)',
       borderBottom:`1px solid ${C.border}`}}>
-      <div style={{maxWidth:1200,margin:'0 auto',padding:'0 20px',height:56,
+      <div style={{maxWidth:1200,margin:'0 auto',padding:'0 16px',minHeight:60,
         display:'flex',alignItems:'center',gap:8}}>
-        <div onClick={()=>setPage('landing')} style={{cursor:'pointer',display:'flex',alignItems:'center',gap:9,marginRight:'auto',flexShrink:0}}>
-          <Logo size={30}/>
-          <span style={{fontFamily:'Bricolage Grotesque',fontSize:18,fontWeight:800,
-            letterSpacing:'-.03em',color:C.text}}>ChefXVid</span>
+        <div onClick={()=>{setPage('landing');setMob(false);}} style={{cursor:'pointer',display:'flex',alignItems:'center',gap:10,marginRight:'auto',flexShrink:0}}>
+          <Logo size={34}/>
+          <span style={{fontFamily:'Bricolage Grotesque',fontSize:22,fontWeight:800,letterSpacing:'-.03em',color:C.text}}>ChefXVid</span>
         </div>
-        <div style={{display:'flex',gap:2,alignItems:'center'}}>
+        <div className="desk-nav" style={{display:'flex',gap:2,alignItems:'center'}}>
           {nav.map(it=>(
             <button key={it.k} onClick={()=>setPage(it.k)} style={{
               background:page===it.k?'rgba(255,90,45,0.12)':'transparent',
               border:'none',borderRadius:99,color:page===it.k?C.orange:C.sub,
-              padding:'7px 14px',cursor:'pointer',
-              fontFamily:'Bricolage Grotesque',fontSize:13,fontWeight:page===it.k?600:500,
-              transition:'all .15s ease',letterSpacing:'-.01em',
-            }} onMouseEnter={e=>{if(page!==it.k)e.target.style.color=C.text;}}
-               onMouseLeave={e=>{if(page!==it.k)e.target.style.color=C.sub;}}>
-              {it.l}
-            </button>
+              padding:'8px 15px',cursor:'pointer',
+              fontFamily:'Bricolage Grotesque',fontSize:14,fontWeight:page===it.k?600:500,
+              transition:'all .15s ease',
+            }}>{it.l}</button>
           ))}
+          <Btn onClick={()=>setPage('analiz')} size="sm" style={{marginLeft:8}}>Analiz Et →</Btn>
         </div>
-        <Btn onClick={()=>setPage('analiz')} size="sm" style={{marginLeft:8,flexShrink:0}}>Analiz Et →</Btn>
+        <button className="ham-btn" onClick={()=>setMob(!mob)} style={{
+          display:'none',background:'rgba(255,90,45,0.1)',border:`1px solid rgba(255,90,45,0.3)`,
+          color:C.text,borderRadius:10,padding:'10px 14px',cursor:'pointer',
+          fontSize:22,lineHeight:1,flexShrink:0,
+        }}>{mob?'✕':'☰'}</button>
       </div>
+      {mob&&(
+        <div className="mob-menu" style={{borderTop:`1px solid ${C.border}`,
+          padding:'12px 16px 16px',display:'flex',flexDirection:'column',gap:4,
+          background:'rgba(18,14,11,0.98)'}}>
+          {nav.map(it=>(
+            <button key={it.k} onClick={()=>{setPage(it.k);setMob(false);}} style={{
+              background:page===it.k?'rgba(255,90,45,0.12)':'transparent',
+              border:'none',color:page===it.k?C.orange:C.text,
+              padding:'14px 16px',cursor:'pointer',textAlign:'left',
+              borderRadius:10,fontFamily:'Bricolage Grotesque',
+              fontSize:17,fontWeight:page===it.k?600:400,
+            }}>{it.l}</button>
+          ))}
+          <Btn onClick={()=>{setPage('analiz');setMob(false);}} style={{borderRadius:12,width:'100%',marginTop:6}} size="lg">
+            Videomu Analiz Et →
+          </Btn>
+        </div>
+      )}
     </nav>
   );
 };
